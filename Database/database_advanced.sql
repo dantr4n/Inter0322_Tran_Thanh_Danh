@@ -80,9 +80,33 @@ update hop_dong set ngay_ket_thuc = '2021-06-20' where ma_hop_dong = 8;
 
 -- Cau 27
 -- a
+DELIMITER //
+create function func_dem_dich_vu()
+returns int
+deterministic
+begin
+    
+end //
+DELIMITER ;
 
 
+-- Cau 28
+Delimiter //
+drop procedure if exists sp_xoa_dich_vu_va_hd_room;
+create procedure sp_xoa_dich_vu_va_hd_room()
+begin
+	drop table if exists tmp_table;
+	create table tmp_table(ma_hop_dong int, ma_dich_vu int);
+	insert into tmp_table Select ma_hop_dong, dv.ma_dich_vu from hop_dong hd left join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
+										inner join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+							where (ten_loai_dich_vu = "Room") and (year(ngay_lam_hop_dong) in (2015, 2016, 2017, 2018, 2019));
+	delete from hop_dong_chi_tiet where ma_hop_dong in (select ma_hop_dong from tmp_table);
+    delete from hop_dong where ma_hop_dong in (select ma_hop_dong from tmp_table);
+    delete from dich_vu where ma_dich_vu in (select ma_dich_vu from tmp_table);
+end //
+delimiter ;
 
+call sp_xoa_dich_vu_va_hd_room();
 
 
 
