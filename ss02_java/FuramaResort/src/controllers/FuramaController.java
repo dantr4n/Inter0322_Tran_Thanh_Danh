@@ -1,6 +1,8 @@
 package controllers;
 
+import services.impl.CustomerServiceImpl;
 import services.impl.EmployeeServiceImpl;
+import services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -29,33 +31,16 @@ public class FuramaController {
                     displayEmployeeMenu();
                     break;
                 case 2:
-                    System.out.println("=> \tCustomer Management".toUpperCase());
-                    System.out.println("-> 1.\tDisplay list customers");
-                    System.out.println("-> 2.\tAdd new customers");
-                    System.out.println("-> 3.\tEdit customers");
-                    System.out.println("-> 4.\tReturn main menu");
+                    displayCustomerMenu();
                     break;
                 case 3:
-                    System.out.println("=> \tFacility Management".toUpperCase());
-                    System.out.println("-> 1.\tDisplay list facility");
-                    System.out.println("-> 2.\tAdd new facility");
-                    System.out.println("-> 3.\tEdit facility");
-                    System.out.println("-> 4.\tReturn main menu");
+                    displayFacilityMenu();
                     break;
                 case 4:
-                    System.out.println("=> \tBooking Management".toUpperCase());
-                    System.out.println("-> 1.\tAdd new booking");
-                    System.out.println("-> 2.\tDisplay list booking");
-                    System.out.println("-> 3.\tCreate new contacts");
-                    System.out.println("-> 4.\tDisplay list contacts");
-                    System.out.println("-> 5.\tEdit contacts");
-                    System.out.println("-> 6.\tReturn main menu");
+                    displayBookingMenu();
                     break;
                 case 5:
-                    System.out.println("=> \tPromotion Management".toUpperCase());
-                    System.out.println("-> 1.\tDisplay list customers use service");
-                    System.out.println("-> 2.\tDisplay list customers get voucher");
-                    System.out.println("-> 3.\tReturn main menu");
+                    displayPromotionMenu();
                     break;
                 case 6:
                     return;
@@ -69,7 +54,7 @@ public class FuramaController {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
 
         while (check){
-            System.out.println("=> \tEmployee Management".toUpperCase());
+            System.out.println("=> \tEmployee Management:".toUpperCase());
             System.out.println("-> 1.\tDisplay list employees");
             System.out.println("-> 2.\tAdd new employee");
             System.out.println("-> 3.\tEdit employee");
@@ -83,10 +68,83 @@ public class FuramaController {
                     employeeService.addNew();
                     break;
                 case 3:
+                    employeeService.edit();
                     break;
                 case 4:
-                    employeeService.delete();
-                    break;
+                    return;
+            }
+        }
+    }
+
+    public static void displayCustomerMenu(){
+        boolean check = true;
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
+
+        while (check){
+            System.out.println("=> \tCustomer Management:".toUpperCase());
+            System.out.println("-> 1.\tDisplay list customers");
+            System.out.println("-> 2.\tAdd new customers");
+            System.out.println("-> 3.\tEdit customers");
+            System.out.println("-> 4.\tReturn main menu");
+            Scanner scanner = new Scanner(System.in);
+
+            switch (Integer.parseInt(scanner.nextLine())){
+                case 1:
+
+            }
+
+        }
+    }
+
+    public static void displayFacilityMenu(){
+        boolean check = true;
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
+
+        while (check){
+            System.out.println("=> \tFacility Management".toUpperCase());
+            System.out.println("-> 1.\tDisplay list facility");
+            System.out.println("-> 2.\tAdd new facility");
+            System.out.println("-> 3.\tEdit facility");
+            System.out.println("-> 4.\tReturn main menu");
+            Scanner scanner = new Scanner(System.in);
+
+            switch (Integer.parseInt(scanner.nextLine())){
+                case 1:
+            }
+        }
+    }
+
+    public static void displayBookingMenu(){
+        boolean check = true;
+
+        while (true) {
+            System.out.println("=> \tBooking Management".toUpperCase());
+            System.out.println("-> 1.\tAdd new booking");
+            System.out.println("-> 2.\tDisplay list booking");
+            System.out.println("-> 3.\tCreate new contacts");
+            System.out.println("-> 4.\tDisplay list contacts");
+            System.out.println("-> 5.\tEdit contacts");
+            System.out.println("-> 6.\tReturn main menu");
+            Scanner scanner = new Scanner(System.in);
+
+            switch (Integer.parseInt(scanner.nextLine())){
+                case 1:
+            }
+        }
+    }
+
+    public static void displayPromotionMenu(){
+        boolean check = true;
+
+        while (true){
+            System.out.println("=> \tPromotion Management".toUpperCase());
+            System.out.println("-> 1.\tDisplay list customers use service");
+            System.out.println("-> 2.\tDisplay list customers get voucher");
+            System.out.println("-> 3.\tReturn main menu");System.out.println("-> 6.\tReturn main menu");
+            Scanner scanner = new Scanner(System.in);
+
+            switch (Integer.parseInt(scanner.nextLine())){
+                case 1:
             }
         }
     }

@@ -22,10 +22,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void addNew() {
         System.out.println("Enter ID: ");
         int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter Date of Birth: ");
-        String dateOfBirth = scanner.nextLine();
         System.out.println("Enter Full Name: ");
         String fullName = scanner.nextLine();
+        System.out.println("Enter Date of Birth: ");
+        String dateOfBirth = scanner.nextLine();
         System.out.println("Enter Gender: ");
         String gender = scanner.nextLine();
         System.out.println("Enter Citizen ID: ");
@@ -47,14 +47,52 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void edit() {
+        System.out.println("Enter Employee's ID to update: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        for(Employee employee : employeeList){
+            if (employee.getId() == id){
+                System.out.println("Selected Employee Information: ");
+                System.out.println(employee.toString());
+                System.out.println("Enter New ID: ");
+                int newID = Integer.parseInt(scanner.nextLine());
+                employee.setId(newID);
+                System.out.println("Enter New Full Name: ");
+                String fullName = scanner.nextLine();
+                employee.setFullName(fullName);
+                System.out.println("Enter New Date of Birth: ");
+                String dateOfBirth = scanner.nextLine();
+                employee.setDateOfBirth(dateOfBirth);
+                System.out.println("Enter New Gender: ");
+                String gender = scanner.nextLine();
+                employee.setGender(gender);
+                System.out.println("Enter New Citizen ID: ");
+                String citizenID = scanner.nextLine();
+                employee.setCitizenID(citizenID);
+                System.out.println("Enter New Phone Number: ");
+                String phoneNumber = scanner.nextLine();
+                employee.setPhoneNumber(phoneNumber);
+                System.out.println("Enter New Email: ");
+                String email = scanner.nextLine();
+                employee.setEmail(email);
+                System.out.println("Enter New Education Level: ");
+                String educationLevel = scanner.nextLine();
+                employee.setEducationLevel(educationLevel);
+                System.out.println("Enter New Position: ");
+                String position = scanner.nextLine();
+                employee.setPosition(position);
+                System.out.println("Enter New Salary: ");
+                int salary = Integer.parseInt(scanner.nextLine());
+                employee.setSalary(salary);
+            }
+        }
 
     }
 
     @Override
     public void delete() {
-        System.out.println("Enter Employee's ID to delete: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        employeeList.remove(id);
-        System.out.println("Employee Delete Successfully.");
+//        System.out.println("Enter Employee's ID to delete: ");
+//        int id = Integer.parseInt(scanner.nextLine());
+//        employeeList.remove(id);
+//        System.out.println("Employee Delete Successfully.");
     }
 }
