@@ -90,7 +90,16 @@ public class FuramaController {
 
             switch (Integer.parseInt(scanner.nextLine())){
                 case 1:
-
+                    customerService.display();
+                    break;
+                case 2:
+                    customerService.addNew();
+                    break;
+                case 3:
+                    customerService.edit();
+                    break;
+                case 4:
+                    return;
             }
 
         }

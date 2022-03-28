@@ -83,6 +83,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Enter New Salary: ");
                 int salary = Integer.parseInt(scanner.nextLine());
                 employee.setSalary(salary);
+            } else{
+                System.out.println("Invalid ID!");
             }
         }
 
